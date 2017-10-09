@@ -1,0 +1,11 @@
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\bin\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.deps.json
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\bin\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.runtimeconfig.json
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\bin\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.runtimeconfig.dev.json
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\bin\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.dll
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\obj\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.csprojResolveAssemblyReference.cache
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\obj\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.csproj.CoreCompileInputs.cache
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\obj\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.AssemblyInfoInputs.cache
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\obj\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.AssemblyInfo.cs
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\bin\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.pdb
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\obj\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.dll
+C:\Users\acohr\source\repos\mid_term_project\OkayBooksAPITestingBranch\obj\Debug\netcoreapp2.0\OkayBooksAPITestingBranch.pdb
