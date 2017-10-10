@@ -1,0 +1,11 @@
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.deps.json
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.runtimeconfig.json
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.runtimeconfig.dev.json
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.dll
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.csprojResolveAssemblyReference.cache
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.csproj.CoreCompileInputs.cache
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.AssemblyInfoInputs.cache
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.AssemblyInfo.cs
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.pdb
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.dll
+C:\projects\401d1\GroupProject1\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.pdb
