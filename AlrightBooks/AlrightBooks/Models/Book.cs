@@ -11,10 +11,14 @@ namespace AlrightBooks.Models
         [Key]
         public int BookID { get; set; }
         public string Author { get; set; }
-        public decimal AdvRating { get; set; }
+        public decimal AvgRating { get; set; }
         public string Title { get; set; }
         public string ImgURL { get; set; }
 
         public virtual BookList BookList { get; set; }
+        public string ISBN
+        {
+            get; set;
+        }
     }
 }
