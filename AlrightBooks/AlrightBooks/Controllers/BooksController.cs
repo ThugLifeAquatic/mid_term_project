@@ -44,7 +44,7 @@ namespace AlrightBooks.Controllers
 
 
         //[HttpGet("[action]/{genre}")]
-        public async Task<IActionResult> Genre(string genre)
+        public async Task<IActionResult> Genre(MenuEnum.BookCat genre)
         {
             ICollection<Books> ReturnBooks = new List<Books>();
             using (var client = new HttpClient())
@@ -138,6 +138,10 @@ namespace AlrightBooks.Controllers
         public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)
         {
             books.User = await _userManager.GetUserAsync(User);
+            if(books.User == null)
+            {
+                return BadRequest("Please Log in to add books to your book list.");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(books);
