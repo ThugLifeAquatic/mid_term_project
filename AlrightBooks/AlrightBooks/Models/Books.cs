@@ -17,7 +17,7 @@ namespace AlrightBooks.Models
         {
             get; set;
         }
-        public decimal AvgRating
+        public decimal? AvgRating
         {
             get; set;
         }
@@ -33,6 +33,7 @@ namespace AlrightBooks.Models
         {
             get; set;
         }
+        public string Description { get; set; }
 
         public ApplicationUser User { get; set; }
 
