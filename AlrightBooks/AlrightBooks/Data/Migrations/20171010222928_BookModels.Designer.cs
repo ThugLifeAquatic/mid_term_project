@@ -11,9 +11,10 @@ using System;
 namespace AlrightBooks.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171010222928_BookModels")]
+    partial class BookModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,9 +79,7 @@ namespace AlrightBooks.Data.Migrations
 
                     b.Property<string>("Author");
 
-                    b.Property<decimal?>("AvgRating");
-
-                    b.Property<string>("Description");
+                    b.Property<decimal>("AvgRating");
 
                     b.Property<string>("ISBN");
 

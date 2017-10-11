@@ -1,0 +1,59 @@
+﻿@model List<AlrightBooks.Models.Books>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Index</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               <h3>Author</h3>
+            </th>
+            <th>
+                <h3>Rating</h3>
+            </th>
+            <th>
+                <h3>Title</h3>
+            </th>
+            <th>
+                <h3>Image</h3>
+            </th>
+            <th>
+                <h3>ISBN</h3>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvgRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.ImgURL)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
