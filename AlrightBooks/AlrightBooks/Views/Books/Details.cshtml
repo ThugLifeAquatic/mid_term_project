@@ -32,7 +32,13 @@
             @Html.DisplayNameFor(model => model.ImgURL)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ImgURL)
+            <img src="@Html.DisplayFor(model => model.ImgURL)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ISBN)

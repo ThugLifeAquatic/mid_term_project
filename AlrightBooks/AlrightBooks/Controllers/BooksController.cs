@@ -43,8 +43,8 @@ namespace AlrightBooks.Controllers
         }
 
 
-        // [HttpGet("[action]/{genre}")]
-        public async Task<IActionResult> Genre(string genre)
+        //[HttpGet("[action]/{genre}")]
+        public async Task<IActionResult> Genre(string bookTitle, string genre)
         {
             ICollection<Books> ReturnBooks = new List<Books>();
             using (var client = new HttpClient())
@@ -52,12 +52,18 @@ namespace AlrightBooks.Controllers
                 try
                 {
                     client.BaseAddress = new Uri("https://www.googleapis.com");
+                    
                     var response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=subject:{genre}");
+                    if(bookTitle != null)
+                    {
+                        response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=title:{bookTitle}");
+                    }
                     response.EnsureSuccessStatusCode();
                     var stringResult = await response.Content.ReadAsStringAsync();
                     var rawBooks = TheBooks.FromJson(stringResult);
                     if (rawBooks.Items != null)
                     {
+
                         IEnumerable<Item> RawBooks = from o in rawBooks.Items
                                                      where o.VolumeInfo.Description != null
                                                      select o;
@@ -90,7 +96,6 @@ namespace AlrightBooks.Controllers
                         }
                     }
                     return View(ReturnBooks);
-
                 }
                 catch (HttpRequestException httpRequestException)
                 {
@@ -99,6 +104,7 @@ namespace AlrightBooks.Controllers
             }
         }
 
+        
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -129,7 +135,7 @@ namespace AlrightBooks.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,ISBN")] Books books)
+        public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)
         {
             books.User = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
@@ -162,7 +168,7 @@ namespace AlrightBooks.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookID,Author,AvgRating,Title,ImgURL,ISBN")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)
         {
             if (id != books.BookID)
             {
