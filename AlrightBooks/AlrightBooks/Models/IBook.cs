@@ -5,45 +5,39 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace AlrightBooks.Models
 {
-    public class Books : IBook
+    public interface IBook
     {
-        [Key]
-        public int BookID
+        int BookID
         {
             get; set;
         }
-        public string Author
+        string Author
         {
             get; set;
         }
-        [Display(Name = "Rating")]
-        public decimal? AvgRating
+        decimal? AvgRating
         {
             get; set;
         }
-        public string Title
+        string Title
         {
             get; set;
         }
-        [Display(Name = "Book Cover")]
-        public string ImgURL
+        string ImgURL
         {
             get; set;
         }
-        //no American ISBN should be longer than 13
-        [MaxLength(13)]
-        public string ISBN
+        string ISBN
         {
             get; set;
         }
-        public string Description
+        string Description
         {
             get; set;
         }
-        public ApplicationUser User
+        ApplicationUser User
         {
             get; set;
         }
-
     }
 }
