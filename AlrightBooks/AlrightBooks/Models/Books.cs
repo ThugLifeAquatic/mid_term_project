@@ -17,7 +17,7 @@ namespace AlrightBooks.Models
         {
             get; set;
         }
-
+        [Display(Name ="Rating")]
         public decimal? AvgRating
         {
             get; set;
@@ -26,11 +26,13 @@ namespace AlrightBooks.Models
         {
             get; set;
         }
+        [Display(Name ="Book Cover")]
         public string ImgURL
         {
             get; set;
         }
-        
+        //no American ISBN should be longer than 13
+        [MaxLength(13)]
         public string ISBN
         {
             get; set;
