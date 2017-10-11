@@ -44,7 +44,7 @@ namespace AlrightBooks.Controllers
 
 
         //[HttpGet("[action]/{genre}")]
-        public async Task<IActionResult> Genre(string bookTitle, string genre)
+        public async Task<IActionResult> Genre(string genre)
         {
             ICollection<Books> ReturnBooks = new List<Books>();
             using (var client = new HttpClient())
@@ -54,10 +54,10 @@ namespace AlrightBooks.Controllers
                     client.BaseAddress = new Uri("https://www.googleapis.com");
                     
                     var response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=subject:{genre}");
-                    if(bookTitle != null)
-                    {
-                        response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=title:{bookTitle}");
-                    }
+                    //if(bookTitle != null)
+                    //{
+                    //    response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=title:{bookTitle}");
+                    //}
                     response.EnsureSuccessStatusCode();
                     var stringResult = await response.Content.ReadAsStringAsync();
                     var rawBooks = TheBooks.FromJson(stringResult);
