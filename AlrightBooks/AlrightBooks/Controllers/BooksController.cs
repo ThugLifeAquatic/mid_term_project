@@ -32,7 +32,7 @@ namespace AlrightBooks.Controllers
             var CurrentUser = await _userManager.GetUserAsync(User);
             var CurrId = CurrentUser.Id;
             var DbBooks = _context.Books;
-            foreach(var B in DbBooks)
+            foreach (var B in DbBooks)
             {
                 if (B.User != null && B.User.Id == CurrId)
                 {
@@ -56,37 +56,41 @@ namespace AlrightBooks.Controllers
                     response.EnsureSuccessStatusCode();
                     var stringResult = await response.Content.ReadAsStringAsync();
                     var rawBooks = TheBooks.FromJson(stringResult);
-                    IEnumerable<Item> RawBooks = from o in rawBooks.Items
-                                                 where o.VolumeInfo.Description != null
-                                                 select o;
-                    foreach (var o in RawBooks)
+                    if (rawBooks.Items != null)
                     {
-                        decimal? temp = 0.00M;
-                        if (o.VolumeInfo.AverageRating == null)
+                        IEnumerable<Item> RawBooks = from o in rawBooks.Items
+                                                     where o.VolumeInfo.Description != null
+                                                     select o;
+                        foreach (var o in RawBooks)
                         {
-                            temp = 0.00M;
+                            decimal? temp = 0.00M;
+                            if (o.VolumeInfo.AverageRating == null)
+                            {
+                                temp = 0.00M;
+                            }
+                            else
+                            {
+                                temp = o.VolumeInfo.AverageRating;
+                            }
+                            string tempISBN = "N/A";
+                            if (o.VolumeInfo.IndustryIdentifiers != null)
+                            {
+                                tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
+                            }
+                            Books Abook = new Books
+                            {
+                                Title = o.VolumeInfo.Title,
+                                Author = o.VolumeInfo.Authors[0],
+                                AvgRating = temp,
+                                Description = o.VolumeInfo.Description,
+                                ImgURL = o.VolumeInfo.ImageLinks.Thumbnail,
+                                ISBN = tempISBN
+                            };
+                            ReturnBooks.Add(Abook);
                         }
-                        else
-                        {
-                            temp = o.VolumeInfo.AverageRating;
-                        }
-                        string tempISBN = "N/A";
-                        if (o.VolumeInfo.IndustryIdentifiers != null)
-                        {
-                            tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
-                        }
-                        Books Abook = new Books
-                        {
-                            Title = o.VolumeInfo.Title,
-                            Author = o.VolumeInfo.Authors[0],
-                            AvgRating = temp,
-                            Description = o.VolumeInfo.Description,
-                            ImgURL = o.VolumeInfo.ImageLinks.Thumbnail,
-                            ISBN = tempISBN
-                        };
-                        ReturnBooks.Add(Abook);
                     }
                     return View(ReturnBooks);
+
                 }
                 catch (HttpRequestException httpRequestException)
                 {
