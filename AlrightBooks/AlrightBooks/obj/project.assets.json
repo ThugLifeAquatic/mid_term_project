@@ -5052,7 +5052,7 @@
       ]
     },
     "Microsoft.ApplicationInsights/2.4.0": {
-      "sha512": "giCQ88kKw5N0U35ad/7J06NguUQyEbYrDUccpIZg3MKsLx3U6Z1RUMuVCJ59uBBjLO+4XAur67GZWap6gU8inw==",
+      "sha512": "22H23461T6VDxUl3teUiAmhxZ67PgKCYOm4AXS6r2xSk98iDoAaZjU7SNU5x1nmRo9ShJrp8CeF67mANhknX1w==",
       "type": "package",
       "path": "microsoft.applicationinsights/2.4.0",
       "files": [
@@ -5072,7 +5072,7 @@
       ]
     },
     "Microsoft.ApplicationInsights.AspNetCore/2.1.1": {
-      "sha512": "j0FgJHf/+XdEdddKmwOXa30kj+LDsQKYxS38yGZzaexgzZ7ZdItEChzYRIss0cC4OckVmHETQSnEelwoKWoB8Q==",
+      "sha512": "iSjD03wDXUxFom/uKXqNKZJIFl1f8yeYRCDOFvpTObmJ03XLzVIgWjkvXZUuRFDUHRM0qYS7aQPeULcocALUxg==",
       "type": "package",
       "path": "microsoft.applicationinsights.aspnetcore/2.1.1",
       "files": [
@@ -5085,7 +5085,7 @@
       ]
     },
     "Microsoft.ApplicationInsights.DependencyCollector/2.4.1": {
-      "sha512": "DbyhIrgnTBD0lmVvV6OpFYna9PXuyZ+X/Rmhf/7BsiDMit2vqSUXRhIW48E1bU8YNM2w33puoM79m15w/g8t9g==",
+      "sha512": "wc//fPAyeQ2SizsbC/kaGRvjLzsvL+SHAmxYtiaPsAI6DvLvOhZDUE0w80V58Yx+yYAcWRTl+BsZlAfoESvH7A==",
       "type": "package",
       "path": "microsoft.applicationinsights.dependencycollector/2.4.1",
       "files": [
@@ -5103,7 +5103,7 @@
       ]
     },
     "Microsoft.AspNetCore/2.0.0": {
-      "sha512": "Czbuda50QZAJkEBjy0Bln7Ir4RbX2Qz6kN/FBvGig9yONTe89s2CRqxsdPSU23R+MfemQlWKcMrph4s2pXkA9Q==",
+      "sha512": "yfANbn84Ii+56xlhrpkRndYetzhpobPjFRCAhOB4SGPB79DQyWVeQe+BBTCDZufgJZrPDPw8Nf4TcWeolcDOPQ==",
       "type": "package",
       "path": "microsoft.aspnetcore/2.0.0",
       "files": [
@@ -6002,7 +6002,7 @@
       ]
     },
     "Microsoft.AspNetCore.StaticFiles/2.0.0": {
-      "sha512": "HBMJQ1WPdHO0thltwi7agvfis3c1Kd5HFQDgyy0nV3X4mJvhVGUnymT0+QQU+GGNK9FG/uEQNE3YDSrrBamP7w==",
+      "sha512": "gVDGKJlF/FdL7X8Z0E0NL9jZNXPTbOoPSlu3TJhK6EIVOILsBbGAQtRZSRd8NN70g4hPSCGgNFlx33H87sqrmg==",
       "type": "package",
       "path": "microsoft.aspnetcore.staticfiles/2.0.0",
       "files": [
@@ -13116,7 +13116,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\acohr\\.nuget\\packages\\": {},
+    "C:\\Users\\shami\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13125,17 +13125,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\acohr\\Source\\Repos\\mid_term_project\\AlrightBooks\\AlrightBooks\\AlrightBooks.csproj",
+      "projectUniqueName": "C:\\Users\\shami\\Source\\Repos\\mid_term_project\\AlrightBooks\\AlrightBooks\\AlrightBooks.csproj",
       "projectName": "AlrightBooks",
-      "projectPath": "C:\\Users\\acohr\\Source\\Repos\\mid_term_project\\AlrightBooks\\AlrightBooks\\AlrightBooks.csproj",
-      "packagesPath": "C:\\Users\\acohr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\acohr\\Source\\Repos\\mid_term_project\\AlrightBooks\\AlrightBooks\\obj\\",
+      "projectPath": "C:\\Users\\shami\\Source\\Repos\\mid_term_project\\AlrightBooks\\AlrightBooks\\AlrightBooks.csproj",
+      "packagesPath": "C:\\Users\\shami\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shami\\Source\\Repos\\mid_term_project\\AlrightBooks\\AlrightBooks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\acohr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shami\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

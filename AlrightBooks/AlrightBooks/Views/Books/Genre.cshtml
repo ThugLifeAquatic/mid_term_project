@@ -48,12 +48,37 @@
                     @Html.DisplayFor(modelItem => item.ISBN)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.BookID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input name="Author" class="form-control" type="hidden" value="@item.Author" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="AvgRating" class="form-control" type="hidden" value="@item.AvgRating" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="Title" class="form-control" type="hidden" value="@item.Title" />
+                            <span class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input name="ImgURL" class="form-control" type="hidden" value="@item.ImgURL" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="ISBN" class="form-control" type="hidden" value="@item.ISBN" />
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Add to My Books" class="btn btn-default" />
+                        </div>
+                    </form>
                 </td>
+                
             </tr>
-        }
+         }
     </tbody>
 </table>
 

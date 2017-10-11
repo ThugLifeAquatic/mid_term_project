@@ -22,3 +22,15 @@ C:\Users\acohr\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug
 C:\Users\acohr\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.AssemblyInfo.cs
 C:\Users\acohr\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.dll
 C:\Users\acohr\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.pdb
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.deps.json
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.runtimeconfig.json
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.runtimeconfig.dev.json
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.dll
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\bin\Debug\netcoreapp2.0\AlrightBooks.pdb
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.csprojResolveAssemblyReference.cache
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.csproj.CoreCompileInputs.cache
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.AssemblyInfoInputs.cache
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.AssemblyInfo.cs
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.dll
+C:\Users\shami\Source\Repos\mid_term_project\AlrightBooks\AlrightBooks\obj\Debug\netcoreapp2.0\AlrightBooks.pdb
