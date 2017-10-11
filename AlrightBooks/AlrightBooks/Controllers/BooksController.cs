@@ -28,13 +28,22 @@ namespace AlrightBooks.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            Books testBook = new Books();
-            testBook.User = await _userManager.GetUserAsync(User);
-            return View(await _context.Books.ToListAsync());
+            List<Books> UserBooks = new List<Books>();
+            var CurrentUser = await _userManager.GetUserAsync(User);
+            var CurrId = CurrentUser.Id;
+            var DbBooks = _context.Books;
+            foreach(var B in DbBooks)
+            {
+                if (B.User != null && B.User.Id == CurrId)
+                {
+                    UserBooks.Add(B);
+                }
+            }
+            return View(UserBooks);
         }
 
 
-       // [HttpGet("[action]/{genre}")]
+        // [HttpGet("[action]/{genre}")]
         public async Task<IActionResult> Genre(string genre)
         {
             ICollection<Books> ReturnBooks = new List<Books>();
@@ -61,7 +70,7 @@ namespace AlrightBooks.Controllers
                         {
                             temp = o.VolumeInfo.AverageRating;
                         }
-                        string tempISBN = "N/A"; 
+                        string tempISBN = "N/A";
                         if (o.VolumeInfo.IndustryIdentifiers != null)
                         {
                             tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
@@ -118,6 +127,7 @@ namespace AlrightBooks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,ISBN")] Books books)
         {
+            books.User = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
             {
                 _context.Add(books);

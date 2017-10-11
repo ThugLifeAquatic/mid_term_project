@@ -4249,28 +4249,28 @@
     "Microsoft.ApplicationInsights/2.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4dX/zu3Psz9oM3ErU64xfOHuSxOwMxN6q5RabSkeYbX42Yn6dR/kDToqjs+txCRjrfHUxyYjfeJHu+MbCfvAsg==",
+      "sha512": "sha512-giCQ88kKw5N0U35ad/7J06NguUQyEbYrDUccpIZg3MKsLx3U6Z1RUMuVCJ59uBBjLO+4XAur67GZWap6gU8inw==",
       "path": "microsoft.applicationinsights/2.4.0",
       "hashPath": "microsoft.applicationinsights.2.4.0.nupkg.sha512"
     },
     "Microsoft.ApplicationInsights.AspNetCore/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kiGmzl9Cav34dF7AHVMoJxdJJQEeLB8KZGNwX1LjImG9iem5hGk4DkHpW7/m9Nh3DrL8IKSL3mqQo+IPqWfMRQ==",
+      "sha512": "sha512-j0FgJHf/+XdEdddKmwOXa30kj+LDsQKYxS38yGZzaexgzZ7ZdItEChzYRIss0cC4OckVmHETQSnEelwoKWoB8Q==",
       "path": "microsoft.applicationinsights.aspnetcore/2.1.1",
       "hashPath": "microsoft.applicationinsights.aspnetcore.2.1.1.nupkg.sha512"
     },
     "Microsoft.ApplicationInsights.DependencyCollector/2.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RWxdX90MY6tNF8S5lwRvJcHiBMIWwVLCxd4TGIEl3X0yAKaolY2vs4zTCvyCIVkEAMs1aInTgWkYwOjzYvAHWw==",
+      "sha512": "sha512-DbyhIrgnTBD0lmVvV6OpFYna9PXuyZ+X/Rmhf/7BsiDMit2vqSUXRhIW48E1bU8YNM2w33puoM79m15w/g8t9g==",
       "path": "microsoft.applicationinsights.dependencycollector/2.4.1",
       "hashPath": "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DQ97NXdVlO3cDHlCt4yxIAR/UwiBrKHVaMd1lL4PwMAXRr5an4ZxJjokla95kPqQCAZbIEo3LYlogrs+MKMzjg==",
+      "sha512": "sha512-Czbuda50QZAJkEBjy0Bln7Ir4RbX2Qz6kN/FBvGig9yONTe89s2CRqxsdPSU23R+MfemQlWKcMrph4s2pXkA9Q==",
       "path": "microsoft.aspnetcore/2.0.0",
       "hashPath": "microsoft.aspnetcore.2.0.0.nupkg.sha512"
     },
@@ -4830,7 +4830,7 @@
     "Microsoft.AspNetCore.StaticFiles/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vJxrx9qoaJVsDzBTOPBC+Tngm2B+0ZyH/NQWWBaAow/+sQuONjVpGZ+4//x+NpEX4o8WS1No6Aim2KzcW8DZmw==",
+      "sha512": "sha512-HBMJQ1WPdHO0thltwi7agvfis3c1Kd5HFQDgyy0nV3X4mJvhVGUnymT0+QQU+GGNK9FG/uEQNE3YDSrrBamP7w==",
       "path": "microsoft.aspnetcore.staticfiles/2.0.0",
       "hashPath": "microsoft.aspnetcore.staticfiles.2.0.0.nupkg.sha512"
     },
