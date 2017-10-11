@@ -32,7 +32,7 @@ namespace AlrightBooks.Controllers
             var CurrentUser = await _userManager.GetUserAsync(User);
             var CurrId = CurrentUser.Id;
             var DbBooks = _context.Books;
-            foreach(var B in DbBooks)
+            foreach (var B in DbBooks)
             {
                 if (B.User != null && B.User.Id == CurrId)
                 {
@@ -43,8 +43,8 @@ namespace AlrightBooks.Controllers
         }
 
 
-        // [HttpGet("[action]/{genre}")]
-        public async Task<IActionResult> Genre(string genre)
+        //[HttpGet("[action]/{genre}")]
+        public async Task<IActionResult> Genre(string bookTitle, string genre)
         {
             ICollection<Books> ReturnBooks = new List<Books>();
             using (var client = new HttpClient())
@@ -52,39 +52,48 @@ namespace AlrightBooks.Controllers
                 try
                 {
                     client.BaseAddress = new Uri("https://www.googleapis.com");
+                    
                     var response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=subject:{genre}");
+                    if(bookTitle != null)
+                    {
+                        response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=title:{bookTitle}");
+                    }
                     response.EnsureSuccessStatusCode();
                     var stringResult = await response.Content.ReadAsStringAsync();
                     var rawBooks = TheBooks.FromJson(stringResult);
-                    IEnumerable<Item> RawBooks = from o in rawBooks.Items
-                                                 where o.VolumeInfo.Description != null
-                                                 select o;
-                    foreach (var o in RawBooks)
+                    if (rawBooks.Items != null)
                     {
-                        decimal? temp = 0.00M;
-                        if (o.VolumeInfo.AverageRating == null)
+
+                        IEnumerable<Item> RawBooks = from o in rawBooks.Items
+                                                     where o.VolumeInfo.Description != null
+                                                     select o;
+                        foreach (var o in RawBooks)
                         {
-                            temp = 0.00M;
+                            decimal? temp = 0.00M;
+                            if (o.VolumeInfo.AverageRating == null)
+                            {
+                                temp = 0.00M;
+                            }
+                            else
+                            {
+                                temp = o.VolumeInfo.AverageRating;
+                            }
+                            string tempISBN = "N/A";
+                            if (o.VolumeInfo.IndustryIdentifiers != null)
+                            {
+                                tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
+                            }
+                            Books Abook = new Books
+                            {
+                                Title = o.VolumeInfo.Title,
+                                Author = o.VolumeInfo.Authors[0],
+                                AvgRating = temp,
+                                Description = o.VolumeInfo.Description,
+                                ImgURL = o.VolumeInfo.ImageLinks.Thumbnail,
+                                ISBN = tempISBN
+                            };
+                            ReturnBooks.Add(Abook);
                         }
-                        else
-                        {
-                            temp = o.VolumeInfo.AverageRating;
-                        }
-                        string tempISBN = "N/A";
-                        if (o.VolumeInfo.IndustryIdentifiers != null)
-                        {
-                            tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
-                        }
-                        Books Abook = new Books
-                        {
-                            Title = o.VolumeInfo.Title,
-                            Author = o.VolumeInfo.Authors[0],
-                            AvgRating = temp,
-                            Description = o.VolumeInfo.Description,
-                            ImgURL = o.VolumeInfo.ImageLinks.Thumbnail,
-                            ISBN = tempISBN
-                        };
-                        ReturnBooks.Add(Abook);
                     }
                     return View(ReturnBooks);
                 }
@@ -95,6 +104,7 @@ namespace AlrightBooks.Controllers
             }
         }
 
+        
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -125,7 +135,7 @@ namespace AlrightBooks.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,ISBN")] Books books)
+        public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)
         {
             books.User = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
@@ -158,7 +168,7 @@ namespace AlrightBooks.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookID,Author,AvgRating,Title,ImgURL,ISBN")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)
         {
             if (id != books.BookID)
             {
