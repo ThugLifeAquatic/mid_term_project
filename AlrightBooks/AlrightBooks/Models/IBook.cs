@@ -6,39 +6,40 @@ using System.Threading.Tasks;
 
 namespace AlrightBooks.Models
 {
-    public class Books : IBook
+    public interface IBook
     {
-        [Key]
-        public int BookID
+        int BookID
         {
             get; set;
         }
-        public string Author
+        string Author
+        {
+            get; set;
+        }
+        decimal? AvgRating
+        {
+            get; set;
+        }
+        string Title
+        {
+            get; set;
+        }
+        string ImgURL
+        {
+            get; set;
+        }
+        string ISBN
+        {
+            get; set;
+        }
+        string Description
         {
             get; set;
         }
 
-        public decimal? AvgRating
+        ApplicationUser User
         {
             get; set;
         }
-        public string Title
-        {
-            get; set;
-        }
-        public string ImgURL
-        {
-            get; set;
-        }
-        
-        public string ISBN
-        {
-            get; set;
-        }
-        public string Description { get; set; }
-
-        public ApplicationUser User { get; set; }
-
-        
     }
 }
