@@ -16,6 +16,7 @@ namespace AlrightBooks.Controllers
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
+        //Adds userManager so we can ID the current user
         private readonly UserManager<ApplicationUser> _userManager;
 
         public BooksController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
@@ -28,8 +29,14 @@ namespace AlrightBooks.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
+            //Retrieves books from the db, only the ones associated with the currently logged in user
             List<Books> UserBooks = new List<Books>();
             var CurrentUser = await _userManager.GetUserAsync(User);
+            //If User is not logged in, Direct them to.
+            if (CurrentUser == null)
+            {
+                return BadRequest("Please Log in to view your book list.");
+            }
             var CurrId = CurrentUser.Id;
             var DbBooks = _context.Books;
             foreach (var B in DbBooks)
@@ -43,7 +50,7 @@ namespace AlrightBooks.Controllers
         }
 
 
-        //[HttpGet("[action]/{genre}")]
+        //This Method calls the google books api using the genre specified by the user.
         public async Task<IActionResult> Genre(MenuEnum.BookCat genre)
         {
             ICollection<Books> ReturnBooks = new List<Books>();
@@ -54,12 +61,9 @@ namespace AlrightBooks.Controllers
                     client.BaseAddress = new Uri("https://www.googleapis.com");
                     
                     var response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=subject:{genre}");
-                    //if(bookTitle != null)
-                    //{
-                    //    response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=title:{bookTitle}");
-                    //}
                     response.EnsureSuccessStatusCode();
                     var stringResult = await response.Content.ReadAsStringAsync();
+                    //Deserialize the JSON response
                     var rawBooks = TheBooks.FromJson(stringResult);
                     if (rawBooks.Items != null)
                     {
@@ -83,6 +87,7 @@ namespace AlrightBooks.Controllers
                             {
                                 tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
                             }
+                            //Maps Massive JSON objects to our simpler book model
                             Books Abook = new Books
                             {
                                 Title = o.VolumeInfo.Title,
@@ -95,6 +100,7 @@ namespace AlrightBooks.Controllers
                             ReturnBooks.Add(Abook);
                         }
                     }
+                    //returns the currated books
                     return View(ReturnBooks);
                 }
                 catch (HttpRequestException httpRequestException)
@@ -131,13 +137,14 @@ namespace AlrightBooks.Controllers
         }
 
         // POST: Books/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //This method adds books to the users reading list.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)
         {
+            //Associates the new book with the logged in user
             books.User = await _userManager.GetUserAsync(User);
+            //If User is not logged in, Direct them to.
             if(books.User == null)
             {
                 return BadRequest("Please Log in to add books to your book list.");
@@ -168,8 +175,6 @@ namespace AlrightBooks.Controllers
         }
 
         // POST: Books/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BookID,Author,AvgRating,Title,ImgURL,Description,ISBN")] Books books)

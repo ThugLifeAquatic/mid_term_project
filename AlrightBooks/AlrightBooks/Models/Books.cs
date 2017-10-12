@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace AlrightBooks.Models
 {
+    //Simplified book model to store books retrieved from the API
     public class Books : IBook
     {
         [Key]
@@ -30,7 +31,6 @@ namespace AlrightBooks.Models
         {
             get; set;
         }
-        //no American ISBN should be longer than 13
         [MaxLength(40)]
         public string ISBN
         {

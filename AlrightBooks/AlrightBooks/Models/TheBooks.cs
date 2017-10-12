@@ -9,7 +9,7 @@ namespace AlrightBooks.Models
     using System.Net;
     using System.Collections.Generic;
     using Newtonsoft.Json;
-
+    //This model is used to catch the JSON returned from the google books api
     public partial class TheBooks
     {
         [JsonProperty("kind")]
