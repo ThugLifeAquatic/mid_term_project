@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace AlrightBooks.Models
 {
+    //Interface for implementing books
     public interface IBook
     {
         int BookID

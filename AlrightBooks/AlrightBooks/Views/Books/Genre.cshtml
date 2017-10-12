@@ -49,6 +49,7 @@
                     @Html.DisplayFor(modelItem => item.ISBN)
                 </td>*@
                 <td>
+                    @* This hidden form auto-creates and posts the selected book to the users book list. *@
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">

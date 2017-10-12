@@ -14,6 +14,7 @@ using AlrightBooks.Models;
 using AlrightBooks.Models.AccountViewModels;
 using AlrightBooks.Services;
 
+//MVC Auto-generated code, handles user accounts
 namespace AlrightBooks.Controllers
 {
     [Authorize]
