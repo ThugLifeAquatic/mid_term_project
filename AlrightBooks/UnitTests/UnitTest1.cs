@@ -18,19 +18,18 @@ namespace UnitTests
             //Assert
             Assert.Equal(200, book.BookID);
         }
-//        [Fact]
-//        public void EnumValidation()
-//        {
-//            //Arrange
-//            var enumSelct = new MenuEnum.BookCat. //{Cats = MenuEnum.BookCat.Adventure};
-//
-//            //Act
-//            enumSelct = MenuEnum.BookCat.Horror;
-//
-//            //Assert
-//            Assert.
-//            Assert.Equal("Adventure", enumSelct);
-//        }
+        [Fact]
+        public void EnumValidation()
+        {
+            //Arrange
+            var enumSelct = new MenuEnum {Cats = MenuEnum.BookCat.Romance};
+
+            //Act
+            enumSelct.Cats = MenuEnum.BookCat.Horror;
+
+            //Assert
+            Assert.Equal("Horror", enumSelct.Cats.ToString());
+        }
         [Fact]
         public void AverageRatingNotNullable()
         {
