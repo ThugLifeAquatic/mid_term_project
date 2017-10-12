@@ -4,6 +4,7 @@
     background-color: #D7CEC7;
 }
 
+
 h2 {
     color: #76323f;
 }
@@ -15,6 +16,20 @@ h3 {
 label {
     font-size: 2em;
     color: #76323f;
+}
+
+
+#homeBody{
+    background-image: url(../images/BookWall.jpg);
+    opacity: 0.9;
+}
+
+#main-form {
+    border-radius: 5px;
+    margin-top: 17%;
+    /*margin-bottom: 50%;*/
+    opacity: 0.99;
+    background-color: #D7CEC7;
 }
 .photo1 img {
     max-height: 200px;
