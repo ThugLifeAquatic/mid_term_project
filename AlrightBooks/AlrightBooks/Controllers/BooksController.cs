@@ -32,6 +32,11 @@ namespace AlrightBooks.Controllers
             //Retrieves books from the db, only the ones associated with the currently logged in user
             List<Books> UserBooks = new List<Books>();
             var CurrentUser = await _userManager.GetUserAsync(User);
+            //If User is not logged in, Direct them to.
+            if (CurrentUser == null)
+            {
+                return BadRequest("Please Log in to view your book list.");
+            }
             var CurrId = CurrentUser.Id;
             var DbBooks = _context.Books;
             foreach (var B in DbBooks)
