@@ -52,7 +52,7 @@ namespace AlrightBooks.Controllers
         public IActionResult ReadBook(string bookISBN)
         {
             //Retrieves books from the db, only the ones associated with the currently logged in user
-            ViewData["bookID"] = $"ISBN:{bookISBN}";
+            ViewData["bookID"] = {bookISBN};
             return View();
         }
 

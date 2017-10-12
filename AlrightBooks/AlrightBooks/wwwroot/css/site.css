@@ -16,6 +16,48 @@ label {
     font-size: 2em;
     color: #76323f;
 }
+.photo1 img {
+    max-height: 200px;
+    max-width: 200px;
+    float: right;
+    margin-left: 10em;
+}
+
+.max-width {
+    max-width: 90%;
+    margin-top: 2em;
+    padding-bottom: 5em;
+}
+
+.photo2 img {
+    max-height: 200px;
+    max-width: 200px;
+    float: right;
+}
+
+.photo3 img {
+    max-height: 200px;
+    max-width: 200px;
+    float: right;
+}
+
+.photo4 img {
+    max-height: 200px;
+    max-width: 200px;
+    float: right;
+}
+
+.id {
+    text-decoration: underline;
+}
+/*hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}*/
 
 /* QR code generator */
 #qrCode {
