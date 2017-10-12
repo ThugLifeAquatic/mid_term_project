@@ -35,6 +35,7 @@ namespace UnitTests
         {
             //Arrange
             var newVolume = new VolumeInfo {AverageRating = null};
+           
             //Act
             decimal? temp = 0.00M;
             if (newVolume.AverageRating == null)
@@ -51,18 +52,22 @@ namespace UnitTests
             {
                 ISBN = tempISBN
             };
+           
             //Assert
             Assert.NotNull(Abook.ISBN);
         }
-//        [Fact]
-//        public void Test1()
-//        {
-//            //Arrange
-//
-//            //Act
-//
-//            //Assert
-//        }
+        [Fact]
+        public void ISBNInRange()
+        {
+            //Arrange
+            var ISBN = new Books();
+            
+            //Act
+            ISBN.ISBN = "0123456789";
+            
+            //Assert
+            Assert.InRange(ISBN.ISBN.Length, 0 , 40);
+        }
 //        [Fact]
 //        public void Test1()
 //        {
