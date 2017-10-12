@@ -49,6 +49,12 @@ namespace AlrightBooks.Controllers
             return View(UserBooks);
         }
 
+        public IActionResult ReadBook(string bookISBN)
+        {
+            //Retrieves books from the db, only the ones associated with the currently logged in user
+            ViewData["bookID"] = $"ISBN:{bookISBN}";
+            return View();
+        }
 
         //This Method calls the google books api using the genre specified by the user.
         public async Task<IActionResult> Genre(MenuEnum.BookCat genre)
@@ -73,14 +79,30 @@ namespace AlrightBooks.Controllers
                                                      select o;
                         foreach (var o in RawBooks)
                         {
-                            decimal? temp = 0.00M;
-                            if (o.VolumeInfo.AverageRating == null)
+                            string tempTitle = "Unknown";
+                            if (o.VolumeInfo.Title != null)
                             {
-                                temp = 0.00M;
+                                tempTitle = o.VolumeInfo.Title;
                             }
-                            else
+                            string tempAuthor = "Unknown";
+                            if (o.VolumeInfo.Authors != null)
+                            {
+                                tempAuthor = o.VolumeInfo.Authors[0];
+                            }
+                            decimal? temp = 0.00M;
+                            if (o.VolumeInfo.AverageRating != null)
                             {
                                 temp = o.VolumeInfo.AverageRating;
+                            }
+                            string tempDesc = "No Description Available.";
+                            if (o.VolumeInfo.Description != null)
+                            {
+                                tempDesc = o.VolumeInfo.Description;
+                            }
+                            string tempIMG = "Unknown";
+                            if (o.VolumeInfo.ImageLinks != null)
+                            {
+                                tempIMG = o.VolumeInfo.ImageLinks.Thumbnail;
                             }
                             string tempISBN = "N/A";
                             if (o.VolumeInfo.IndustryIdentifiers != null)
@@ -88,16 +110,16 @@ namespace AlrightBooks.Controllers
                                 tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
                             }
                             //Maps Massive JSON objects to our simpler book model
-                            Books Abook = new Books
+                            Books Tbook = new Books
                             {
-                                Title = o.VolumeInfo.Title,
-                                Author = o.VolumeInfo.Authors[0],
+                                Title = tempTitle,
+                                Author = tempAuthor,
                                 AvgRating = temp,
-                                Description = o.VolumeInfo.Description,
-                                ImgURL = o.VolumeInfo.ImageLinks.Thumbnail,
+                                Description = tempDesc,
+                                ImgURL = tempIMG,
                                 ISBN = tempISBN
                             };
-                            ReturnBooks.Add(Abook);
+                            ReturnBooks.Add(Tbook);
                         }
                     }
                     //returns the currated books
@@ -110,7 +132,83 @@ namespace AlrightBooks.Controllers
             }
         }
 
-        
+        //This Method calls the google books api using the genre specified by the user.
+        public async Task<IActionResult> TitleSearch(string BookTitle)
+        {
+            ICollection<Books> ReturnTBooks = new List<Books>();
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri("https://www.googleapis.com");
+
+                    var response = await client.GetAsync($"/books/v1/volumes?maxResults=40&q=title:{BookTitle}");
+                    response.EnsureSuccessStatusCode();
+                    var stringResult = await response.Content.ReadAsStringAsync();
+                    //Deserialize the JSON response
+                    var rawTBooks = TheBooks.FromJson(stringResult);
+                    if (rawTBooks.Items != null)
+                    {
+
+                        IEnumerable<Item> RawTBooks = from o in rawTBooks.Items
+                                                     where o.VolumeInfo.Description != null
+                                                     select o;
+                        foreach (var o in RawTBooks)
+                        {
+                            string tempTitle = "Unknown";
+                            if (o.VolumeInfo.Title != null)
+                            {
+                                tempTitle = o.VolumeInfo.Title;
+                            }
+                            string tempAuthor = "Unknown";
+                            if (o.VolumeInfo.Authors != null)
+                            {
+                                tempAuthor = o.VolumeInfo.Authors[0];
+                            }
+                            decimal? temp = 0.00M;
+                            if (o.VolumeInfo.AverageRating != null)
+                            {
+                                temp = o.VolumeInfo.AverageRating;
+                            }
+                            string tempDesc = "No Description Available.";
+                            if (o.VolumeInfo.Description != null)
+                            {
+                                tempDesc = o.VolumeInfo.Description;
+                            }
+                            string tempIMG = "Unknown";
+                            if (o.VolumeInfo.ImageLinks != null)
+                            {
+                                tempIMG = o.VolumeInfo.ImageLinks.Thumbnail;
+                            }
+                            string tempISBN = "N/A";
+                            if (o.VolumeInfo.IndustryIdentifiers != null)
+                            {
+                                tempISBN = o.VolumeInfo.IndustryIdentifiers[0].Identifier;
+                            }
+                            //Maps Massive JSON objects to our simpler book model
+                            Books Tbook = new Books
+                            {
+                                Title = tempTitle,
+                                Author = tempAuthor,
+                                AvgRating = temp,
+                                Description = tempDesc,
+                                ImgURL = tempIMG,
+                                ISBN = tempISBN
+                            };
+                            ReturnTBooks.Add(Tbook);
+                        }
+                    }
+                    //returns the currated books
+                    return View("genre", ReturnTBooks);
+                }
+                catch (HttpRequestException httpRequestException)
+                {
+                    return BadRequest($"Error getting requested books from Google Books: {httpRequestException.Message}");
+                }
+            }
+        }
+
+
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
