@@ -31,7 +31,7 @@ namespace AlrightBooks.Models
             get; set;
         }
         //no American ISBN should be longer than 13
-        [MaxLength(13)]
+        [MaxLength(40)]
         public string ISBN
         {
             get; set;

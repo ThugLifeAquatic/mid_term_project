@@ -1,4 +1,5 @@
-﻿@{
+﻿@model AlrightBooks.Models.MenuEnum
+@{
 
     ViewData["Title"] = "Home Page";
 }
@@ -9,7 +10,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label  class="control-label">Search by Genre</label>
-                <input name="genre" class="form-control" />
+                <select name="genre" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(MenuEnum.BookCat))"></select>
                 <span  class="text-danger"></span>
             </div>
             @*<div class="form-group">
@@ -22,7 +23,8 @@
             </div>
         </form>
     </div>
-</div>
+    
+</div >
 
 
 

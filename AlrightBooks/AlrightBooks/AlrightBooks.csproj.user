@@ -10,5 +10,6 @@
     <WebStackScaffolding_DbContextTypeFullName>AlrightBooks.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <NameOfLastUsedPublishProfile>AlrightBooks - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
