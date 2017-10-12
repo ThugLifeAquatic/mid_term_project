@@ -1,10 +1,10 @@
-using AlrightBooks.Models;
 using System;
+using AlrightBooks.Models;
 using Xunit;
 
 namespace UnitTests
 {
-    public class UnitTest1
+    public class UnitTest
     {
         [Fact]
         public void SetBookID()
@@ -68,14 +68,15 @@ namespace UnitTests
             //Assert
             Assert.InRange(ISBN.ISBN.Length, 0 , 40);
         }
-//        [Fact]
-//        public void Test1()
-//        {
-//            //Arrange
-//
-//            //Act
-//
-//            //Assert
-//        }
+        [Fact]
+        public void BookIDType()
+        {
+            //Arrange
+            Books bookID = new Books();
+            //Act
+            bookID.BookID = 1234;
+            //Assert
+            Assert.IsType(typeof(int), bookID.BookID);
+        }
     }
 }
